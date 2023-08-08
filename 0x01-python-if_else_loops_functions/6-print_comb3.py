@@ -4,4 +4,4 @@ for i in range(0, 100):
         print("{}".format(i))
     else:
         if (i % 10) > (i / 10):
-            print("{:02d}".format(i), end = ", ")
+            print("{:02d}".format(i), end=", ")
