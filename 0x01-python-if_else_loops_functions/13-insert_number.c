@@ -17,12 +17,12 @@ listint_t *insert_node(listint_t **head, int number)
 		*head = ptr;
 		return (ptr);
 	}
-	while (node->n < number)
+	while (node->next != NULL && node->next->n < number)
 	{
 		node = node->next;
 	}
-	ptr->next = node;
-	node = ptr;
-	return (node);
+	ptr->next = node->next;
+	node->next = ptr;
+	return (ptr);
 
 }
