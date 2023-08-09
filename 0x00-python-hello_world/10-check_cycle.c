@@ -4,18 +4,16 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *ptr, *node;
-	
-	if (list == NULL)
-		return (0);
-	node = list->next;
+	listint_t *tmp, *ptr;
+
 	ptr = list;
-	while (node != NULL && node->next != NULL)
+	while (ptr != NULL && ptr->next != NULL)
 	{
-                if (node->next == ptr)
-               		return (1);
-                ptr = ptr->next;
-                node = node->next;
+		if (ptr->next == tmp)
+			return (1);
+		ptr = list->next;
+		list->next = tmp;
+		list = ptr;
 	}
 	return (0);
 }
