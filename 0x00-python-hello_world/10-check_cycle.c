@@ -5,7 +5,9 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *ptr, *node;
-
+	
+	if (list == NULL)
+		return (0);
 	node = list->next;
 	ptr = list;
 	while (node != NULL && node->next != NULL)
