@@ -8,15 +8,13 @@ int is_palindrome(listint_t **head)
 	int length = 0, i = 0;
 
 	ptr = *head;
-	if (ptr == NULL)
+	if (ptr == NULL || ptr->next == NULL)
 		return (1);
 	while (ptr != NULL)
 	{
 		length++;
 		ptr = ptr->next;
 	}
-	if (length % 2 != 0)
-		return (0);
 	ptr = *head;
 	while (i < length / 2)
 	{
@@ -24,6 +22,8 @@ int is_palindrome(listint_t **head)
 		ptr = ptr->next;
 		i++;
 	}
+	if (length % 2 != 0)
+		ptr = ptr->next;
 	while ((head2 != NULL && ptr != NULL) && head2->n == ptr->n)
 	{
 		head2 = head2->next;
