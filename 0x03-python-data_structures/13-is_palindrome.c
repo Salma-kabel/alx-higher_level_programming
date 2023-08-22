@@ -4,7 +4,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *head2 = NULL, *ptr;
+	listint_t *head2 = *head, *ptr, *crt, *prev, *next;
 	int length = 0, i = 0;
 
 	ptr = *head;
@@ -18,27 +18,30 @@ int is_palindrome(listint_t **head)
 	ptr = *head;
 	while (i < length / 2)
 	{
-		head2 = addnode(&head2, ptr->n);
 		ptr = ptr->next;
 		i++;
 	}
 	if (length % 2 != 0)
 		ptr = ptr->next;
-	while ( ptr != NULL && head2 != NULL && head2->n == ptr->n)
+	prev = NULL;
+	crt = ptr;
+	while (crt != NULL )
 	{
-		head2 = head2->next;
+		next = crt ->next;
+		crt->next = prev;
+		prev = crt;
+		crt = next;
+	}
+	ptr = prev;
+	while(ptr != NULL && head2->n == ptr->n)
+	{
 		ptr = ptr->next;
+		head2 = head2->next;
 	}
-	if (head2 == NULL && ptr == NULL)
-	{
-		free_listint(head2);
+	if (ptr == NULL)
 		return (1);
-	}
 	else
-	{
-		free_listint(head2);
 		return (0);
-	}
 }
 
 listint_t *addnode(listint_t **head, int n)
