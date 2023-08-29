@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Create square class"""
-class square:
+class Square:
     """Initialize the class"""
     def __init__(self, size=0):
         if (type(size) is not int):
