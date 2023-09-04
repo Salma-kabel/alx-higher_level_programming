@@ -2,6 +2,7 @@
 
 """Create rectangle class"""
 
+
 class Rectangle:
     """Empty class"""
 
