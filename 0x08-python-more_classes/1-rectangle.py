@@ -5,7 +5,7 @@
 class Rectangle:
     """Initialize the class"""
     def __init__(self, width=0, height=0):
-        self.__width = width
+        self.width = width
         self.height = height
 
     """Retrieve width"""
