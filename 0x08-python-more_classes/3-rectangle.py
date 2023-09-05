@@ -50,12 +50,13 @@ class Rectangle:
 
     """ print the rectangle with the character #"""
     def __str__(self):
-        rec = ""
+        """returns string representation of rectangle for print() and str()"""
+        rec_string = ""
         if self.width == 0 or self.height == 0:
-            return (rec)
-        for i in range(self.height):
-            for j in range(self.width):
-                rec += "#"
-            rec += "\n"
-            rec = rec[:-1]
-        return (rec)
+            return (rec_string)
+        for row in range(self.height):
+            for column in range(self.width):
+                rec_string += "#"
+            rec_string += "\n"
+        rec_string = rec_string[:-1]
+        return (rec_string)
