@@ -50,7 +50,6 @@ class Rectangle:
 
     """ print the rectangle with the character #"""
     def __str__(self):
-        """returns string representation of rectangle for print() and str()"""
         rec = ""
         if self.width == 0 or self.height == 0:
             return (rec)
