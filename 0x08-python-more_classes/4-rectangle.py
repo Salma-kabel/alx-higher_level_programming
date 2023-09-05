@@ -57,6 +57,7 @@ class Rectangle:
             for j in range(self.width):
                 rec += "#"
             rec += "\n"
+        rec = rec[:-1]
         return (rec)
 
     def __repr__(self):
