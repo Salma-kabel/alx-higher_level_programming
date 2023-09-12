@@ -6,4 +6,4 @@ def read_file(filename=""):
     """opening a file"""
     with open(filename, mode='r', encoding="utf-8") as f:
         rd = f.read()
-        print("{}".format(rd), end="")
+        print("{}".format(rd))
