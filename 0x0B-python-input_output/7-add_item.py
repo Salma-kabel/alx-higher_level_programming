@@ -13,4 +13,3 @@ except FileNotFoundError:
     arguments = []
 arguments.extend(sys.argv[1:])
 save_to_json_file(arguments, "add_item.json")
-
