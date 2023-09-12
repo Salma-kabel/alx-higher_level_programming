@@ -8,6 +8,6 @@ from 6-load_from_json_file import load_from_json_file
 try:
     arguments = load_from_json_file("add_item.json")
 except FileNotFoundError:
-    arguments = list(sys.argv)
+    arguments = list(sys.argv[1:])
 save_to_json_file(arguments, "add_item.json")
 
