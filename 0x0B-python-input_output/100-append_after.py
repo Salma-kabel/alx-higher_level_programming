@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
-""" inserts a line of text to file after each line containing a specific string"""
+""" inserts a line to file after each line containing a specific string"""
 
 
 def append_after(filename="", search_string="", new_string=""):
     """opens a file"""
-    l = ""
+    line_ = ""
     with open(filename) as f:
         for line in f:
-            l += line
+            line_ += line
             if search_string in line:
-                l += new_string
+                line_ += new_string
     with open(filename, "w") as f:
-        f.write(l)
+        f.write(line_)
