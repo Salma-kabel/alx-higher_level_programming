@@ -15,7 +15,7 @@ def metrics():
                 print("File size: {}".format(total_size))
                 for key in sorted(codes):
                     print("{}: {}".format(key, codes[key]))
-                count = 1
+                count = 0
             else:
                 count += 1
             line = line.split()
