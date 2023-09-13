@@ -12,12 +12,12 @@ class Student:
     """ retrieves a dictionary representation"""
     def to_json(self, attrs=None):
         if type(attrs) == list:
-            dict_ = {}
-            for atrr in self.__dict__:
-                for attr2 in attrs:
-                    if attr == attr2:
-                        dict_[attr] = self.__dict__[attr2]
-            return dict_
+            atdict = {}
+            for atr in attrs:
+                for atr2 in self.__dict__:
+                    if atr == atr2:
+                        atdict[atr] = self.__dict__[atr2]
+            return atdict
 
         return self.__dict__
 
