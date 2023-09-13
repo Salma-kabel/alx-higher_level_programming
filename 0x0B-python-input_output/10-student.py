@@ -15,7 +15,7 @@ class Student:
             atdict = {}
             for atr in attrs:
                 for atr2 in self.__dict__:
-                    if atr = atr2:
+                    if atr == atr2:
                         atdict[atr] = self.__dict__[atr2]
             return atdict
 
