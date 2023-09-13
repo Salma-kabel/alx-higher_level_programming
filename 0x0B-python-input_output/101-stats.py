@@ -40,5 +40,7 @@ def metrics():
             print("{}: {}".format(key, codes[key]))
         raise
 
+
 if __name__ == "__main__":
+
     metrics()
