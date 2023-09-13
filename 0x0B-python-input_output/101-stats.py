@@ -20,13 +20,13 @@ def metrics():
                 count += 1
             line = line.split()
             try:
-                total_size += int(line[-1]) 
+                total_size += int(line[-1])
                 if line[-2] in possible_codes:
                     if line[-2] in codes.keys():
                         codes[line[-2]] += 1
                     else:
                         codes[line[-2]] = 1
-            except:
+            except IndexError:
                 pass
         print("File size: {}".format(total_size))
         for key in sorted(codes):
