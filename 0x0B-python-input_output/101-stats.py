@@ -19,8 +19,7 @@ def metrics():
             else:
                 count += 1
             line = line.split()
-            total_size += int(line[-1])
-            
+            total_size += int(line[-1]) 
             try:
                 if line[-2] in possible_codes:
                     if line[-2] in codes.keys():
