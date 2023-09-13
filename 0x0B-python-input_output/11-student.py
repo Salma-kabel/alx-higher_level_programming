@@ -11,8 +11,8 @@ class Student:
 
     """ retrieves a dictionary representation"""
     def to_json(self, attrs=None):
-        if (type(attrs) == list:
-                dict_ = {}
+        if type(attrs) == list:
+            dict_ = {}
             for atrr in self.__dict__:
                 for attr2 in attrs:
                     if attr == attr2:
