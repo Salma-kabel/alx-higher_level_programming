@@ -13,10 +13,9 @@ class Student:
     def to_json(self, attrs=None):
         if type(attrs) == list:
             dict_ = {}
-            for atrr in self.__dict__:
-                for attr2 in attrs:
-                    if attr == attr2:
-                        dict_[attr] = self.__dict__[attr]
+            for atrr in attrs:
+                if hasattr(self, atrr):
+                    dict_[attr] = self.__dict__[attr]
             return dict_
 
         return self.__dict__
