@@ -26,12 +26,12 @@ def metrics():
                         codes[line[-2]] += 1
                     else:
                         codes[line[-2]] = 1
-            except IndexError:
+            except (IndexError, ValueError):
                 pass
         print("File size: {}".format(total_size))
         for key in sorted(codes):
             print("{}: {}".format(key, codes[key]))
-    except KeyboardInterrupt:
+    except KeyboiardInterrupt:
         print("File size: {}".format(total_size))
         for key in sorted(codes):
             print("{}: {}".format(key, codes[key]))
