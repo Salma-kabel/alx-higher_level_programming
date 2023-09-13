@@ -35,7 +35,6 @@ def metrics():
         print("File size: {}".format(total_size))
         for key in sorted(codes):
             print("{}: {}".format(key, codes[key]))
-        raise
 
 
 if __name__ == "__main__":
