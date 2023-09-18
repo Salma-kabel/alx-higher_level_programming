@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """create a class base class will be the “base” of all other classes"""
 import json
+import os
 
 
 class Base():
