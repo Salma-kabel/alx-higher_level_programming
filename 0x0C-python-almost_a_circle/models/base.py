@@ -43,5 +43,4 @@ class Base():
         list1 = []
         if jsin_string is None or len(json_string) == 0:
             return list1
-        list1.append(json.loads(json_string))
-        return list1
+        return json.loads(json_string)
