@@ -79,7 +79,7 @@ class Rectangle(Base):
         """prints the Rectangle instance with the character #"""
         for i in range(self.height):
             for j in range(self.width):
-                print("#",end="")
+                print("#", end="")
             print()
 
     def __str__(self):
@@ -87,5 +87,3 @@ class Rectangle(Base):
         string = str(self.y) + " - " + str(self.width) + "/" + str(self.height)
 
         return "[Rectangle] " + str(self.id) + " " + str(self.x) + "/" + string
-
-
