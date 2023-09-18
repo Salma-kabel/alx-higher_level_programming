@@ -35,9 +35,9 @@ class Square(Rectangle):
                     self.width = args[1]
                     self.height = args[1]
                 if i == 2:
-                    self.x = args[3]
+                    self.x = args[2]
                 if i == 3:
-                    self.y = args[4]
+                    self.y = args[3]
         else:
             for key in kwargs:
                 if key == "id":
