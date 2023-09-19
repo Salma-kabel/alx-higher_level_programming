@@ -38,11 +38,11 @@ adds two integers if they are int or float
 >>> add_integer(float('inf'))
 Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
-::
+
 >>> add_integer(50, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
-
+::
 >>> add_integer()
 Traceback (most recent call last):
 TypeError: add_integer() missing 1 required positional argument: 'a'
@@ -55,11 +55,11 @@ ValueError: cannot convert float NaN to integer
 >>> add_integer(None)
 Traceback (most recent call last):
 TypeError: a must be an integer
-::
+
 >>> add_integer("test", 50)
     Traceback (most recent call last):
     TypeError: a must be an integer
-
+::
 >>> add_integer(20, "100")
     Traceback (most recent call last):
     TypeError: b must be an integer
