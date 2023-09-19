@@ -4,41 +4,41 @@ test for the function add_integer
 adds two integers if they are int or float
 
 >>> add_integer = __import__('0-add_integer').add_integer
-
+::
 >>> add_integer(5, 5)
 10
-
+::
 >>> add_integer(5, -5)
 0
-
+::
 >>> add_integer(-5, -5)
 -10
-
+::
 >>> add_integer(5.0, 5.0)
 10
-
+::
 >>> add_integer(5.0, -5.0)
 0
-
+::
 >>> add_integer(-5.0, -5.0)
 -10
-
+::
 >>> add_integer(5.7, -2)
 3
-
+::
 >>> add_integer(-5.4, -2.3)
 -7
-
+::
 >>> add_integer(5.2, 1.8)
 6
-
+::
 >>> add_integer(20)
 118
-
+::
 >>> add_integer(float('inf'))
 Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
-
+::
 >>> add_integer(50, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
@@ -46,16 +46,16 @@ OverflowError: cannot convert float infinity to integer
 >>> add_integer()
 Traceback (most recent call last):
 TypeError: add_integer() missing 1 required positional argument: 'a'
-
+::
 >>> add_integer(float("NaN"))
 Traceback (most recent call last):
 ValueError: cannot convert float NaN to integer
 
-
+::
 >>> add_integer(None)
 Traceback (most recent call last):
 TypeError: a must be an integer
-
+::
 >>> add_integer("test", 50)
     Traceback (most recent call last):
     TypeError: a must be an integer
@@ -63,11 +63,11 @@ TypeError: a must be an integer
 >>> add_integer(20, "100")
     Traceback (most recent call last):
     TypeError: b must be an integer
-
+::
 >>> add_integer("50", "50")
     Traceback (most recent call last):
     TypeError: a must be an integer
-
+::
 >>> add_integer(30.8, None)
     Traceback (most recent call last):
     TypeError: b must be an integer
