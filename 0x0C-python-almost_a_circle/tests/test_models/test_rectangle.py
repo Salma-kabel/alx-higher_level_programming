@@ -74,6 +74,45 @@ class TestRectangle(unittest.TestCase):
         self.rect.display()
         self.assertEqual(sys.stdout.getvalue(), "###\n###\n")
 
+    def test_todict(self):
+        """test to_dictionary method"""
+        res = {'id' : 10, 'width' : 3, 'height' : 2, 'x' : 2, 'y' : 1}
+        self.assertEqual(self.rect.to_dictionary(),res)
+
+    def test_update(self):
+        self.assertEqual(self.rect.update(None), None)
+        self.assertEqual(self.rect.update(), None)
+        self.rect.update(7)
+        self.assertEqual(self.rect.id, 7)
+        self.rect.update(9, 12)
+        self.assertEqual(self.rect.id, 9)
+        self.assertEqual(self.rect.width, 12)
+        self.rect.update(41, 13, 5)
+        self.assertEqual(self.rect.id, 41)
+        self.assertEqual(self.rect.width, 13)
+        self.assertEqual(self.rect.height, 5)
+        self.rect.update(42, 15, 7, 2)
+        self.assertEqual(self.rect.id, 42)
+        self.assertEqual(self.rect.width, 15)
+        self.assertEqual(self.rect.height, 7)
+        self.assertEqual(self.rect.x, 2)
+        self.rect.update(45, 15, 9, 4, 2)
+        self.assertEqual(self.rect.id, 45)
+        self.assertEqual(self.rect.width, 15)
+        self.assertEqual(self.rect.height, 9)
+        self.assertEqual(self.rect.x, 4)
+        self.assertEqual(self.rect.y, 2)
+        self.rect.update(**{'id' : 8})
+        self.assertEqual(self.rect.id, 8)
+        self.rect.update(**{'id' : 8, 'width': 7})
+        self.assertEqual(self.rect.width, 7)
+        self.rect.update(**{'id' : 8, 'width': 7, 'height' : 3})
+        self.assertEqual(self.rect.height, 3)
+        self.rect.update(**{'id' : 8, 'width': 7, 'height' : 3, 'x' : 2})
+        self.assertEqual(self.rect.x, 2)
+        self.rect.update(**{'id' : 8, 'width': 7, 'height' : 3, 'x' : 2, 'y': 1})
+        self.assertEqual(self.rect.y, 1)
+
 
 def test_pep8(self):
         """test that code follows pep8 style guidelines"""
