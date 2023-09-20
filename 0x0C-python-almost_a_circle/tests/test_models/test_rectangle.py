@@ -160,8 +160,14 @@ class TestRectangle(unittest.TestCase):
         list1 = [Rectangle(4, 2), Rectangle(7, 3, 2, 1)]
         Rectangle.save_to_file(list1)
         list0 = Rectangle.load_from_file()
-        for i in range(len(list1)):
-            self.assertEqual(list1[i].__str__(), list0[i].__str__())
+        list2 = []
+        list3 = []
+        for i in range(2):
+            list2.append(list1[i].to_dictionary())
+        for instance in list2:
+                list3.append(Rectangle.create(**instance))        
+        for i in range(len(list3)):
+            self.assertEqual(list3[i].__str__(), list0[i].__str__())
 
     def test_pep8(self):
         """test that code follows pep8 style guidelines"""
