@@ -3,6 +3,9 @@ import pep8
 from models.base import Base
 from models.square import Square
 from models.rectangle import Rectangle
+import io
+import sys
+
 """test for rectangle class"""
 
 
@@ -11,6 +14,7 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         """create an instance before any test"""
         Base._Base__nb_objects = 0
+        self.rect = Rectangle(3, 2, 2, 1, 10)
 
     def test_init(self):
         """test for inistantiation function"""
@@ -42,6 +46,33 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, rect1.__init__, 20, -8, 1)
         self.assertRaises(ValueError, rect1.__init__, 20, 8, -1)
         self.assertRaises(ValueError, rect1.__init__, 20, 8, 1, -1)
+
+    def test_area(self):
+        """test area method"""
+        self.assertEqual(self.rect.area(), 6)
+
+    def test_str(self):
+        """test str method"""
+        self.assertEqual(self.rect.__str__(), "[Rectangle] (10) 2/1 - 3/2")
+
+    def test_display(self):
+        """test for display method"""
+        sys.stdout = io.StringIO()
+        self.rect.display()
+        self.assertEqual(sys.stdout.getvalue(), "\n  ###\n  ###\n")
+        self.rect.x = 0
+        sys.stdout = io.StringIO()
+        self.rect.display()
+        self.assertEqual(sys.stdout.getvalue(), "\n###\n###\n")
+        self.rect.x = 2
+        self.rect.y = 0
+        sys.stdout = io.StringIO()
+        self.rect.display()
+        self.assertEqual(sys.stdout.getvalue(), "  ###\n  ###\n")
+        self.rect.x = 0
+        sys.stdout = io.StringIO()
+        self.rect.display()
+        self.assertEqual(sys.stdout.getvalue(), "###\n###\n")
 
 
 def test_pep8(self):
