@@ -11,21 +11,29 @@ import pep8
 
 class TestBase(unittest.TestCase):
     """test id attribute"""
+    def setUp(self):
+        Base._Base__nb_objects = 0
+        self.base1 = Base()
+
     def test_id(self):
         """Test id attribute automatically and with value"""
-        base1 = Base()
-        self.assertEqual(base1.id, 1)
+        self.assertEqual(self.base1.id, 1)
         base2 = Base(89)
         self.assertEqual(base2.id, 89)
         base3 = Base()
         self.assertEqual(base3.id, 2)
 
     def test_tojsonstring(self):
-        base1 = Base()
-        self.assertEqual(base1.to_json_string(None), "[]")
-        self.assertEqual(base1.to_json_string([]), "[]")
-        res3 = base1.to_json_string([{'test1' : 1, 'test2' : None}])
+        self.assertEqual(self.base1.to_json_string(None), "[]")
+        self.assertEqual(self.base1.to_json_string([]), "[]")
+        res3 = self.base1.to_json_string([{'test1' : 1, 'test2' : None}])
         self.assertEqual(res3, '[{"test1": 1, "test2": null}]')
+
+    def test_fromjsonstring(self):
+        self.assertEqual(self.base1.from_json_string(None), [])
+        self.assertEqual(self.base1.from_json_string("[]"), [])
+        res3 = self.base1.from_json_string('[{"test1": 1, "test2": null}]')
+        self.assertEqual(res3, [{'test1' : 1, 'test2' : None}])
 
     def test_pep8(self):
         """test that code follows pep8 style guidelines"""
