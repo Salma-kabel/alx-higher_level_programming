@@ -10,7 +10,7 @@ from unittest.mock import patch
 class TestBase(unittest.TestCase):
     """test id attribute"""
     def test_id(self):
-        """ Test id attribute"""
+        """Test id attribute automatically and with value"""
         base1 = Base()
         self.assertEqual(base1.id, 1)
         base2 = Base(89)
