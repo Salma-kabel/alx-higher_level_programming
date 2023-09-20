@@ -136,6 +136,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect5.height, 4)
         self.assertEqual(rect5.x, 1)
         self.assertEqual(rect5.y, 1)
+
+    def test_savetojsonrect(self):
+        """test save_to_file for rect"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), "[]")
+        Rectangle.save_to_file([])
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), "[]")
+        list1 = [Rectangle(4, 2), Rectangle(7, 3, 2, 1)]
+        Rectangle.save_to_file(list1)
+        list2 = []
+        for i in range(2):
+                list2.append(list1[i].to_dictionary())
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), Rectangle.to_json_string(list2))
 def test_pep8(self):
         """test that code follows pep8 style guidelines"""
         pep8style = pep8.StyleGuide(quiet=True)
