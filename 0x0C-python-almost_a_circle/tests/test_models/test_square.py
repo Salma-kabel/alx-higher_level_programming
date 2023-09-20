@@ -90,3 +90,55 @@ class test_square(unittest.TestCase):
         self.assertEqual(self.sq.x, 2)
         self.sq.update(**{'id' : 8, 'size': 7, 'x' : 2, 'y': 1})
         self.assertEqual(self.sq.y, 1)
+
+    def test_create_square(self):
+        """test for create for square"""
+        sq1 = Square.create(**{'id' : 5})
+        self.assertEqual(sq1.id, 5)
+        sq2 = Square.create(**{'id' : 6, 'size' : 7})
+        self.assertEqual(sq2.id, 6)
+        self.assertEqual(sq2.width, 7)
+        self.assertEqual(sq2.height, 7)
+        sq4 = Square.create(**{'id' : 11, 'size' : 7, 'x': 3})
+        self.assertEqual(sq4.id, 11)
+        self.assertEqual(sq4.width, 7)
+        self.assertEqual(sq4.height, 7)
+        self.assertEqual(sq4.x, 3)
+        sq5 = Square.create(**{'id' : 15, 'size' : 7, 'x': 1, 'y' : 1})
+        self.assertEqual(sq5.id, 15)
+        self.assertEqual(sq5.width, 7)
+        self.assertEqual(sq5.height, 7)
+        self.assertEqual(sq5.x, 1)
+        self.assertEqual(sq5.y, 1)
+
+    def test_saveto_square(self):
+        """test save_to_file for square"""
+        Square.save_to_file(None)
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), "[]")
+        Square.save_to_file([])
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), "[]")
+        list1 = [Square(4), Square(7, 2, 1)]
+        Square.save_to_file(list1)
+        list2 = []
+        for i in range(2):
+                list2.append(list1[i].to_dictionary())
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), Square.to_json_string(list2))
+
+    def test_loadfrom_square(self):
+        """test load_from_file for Square"""
+        list2 = []
+        self.assertEqual(Square.load_from_file(), list2)
+        list1 = [Square(4), Square(3, 2, 1)]
+        Square.save_to_file(list1)
+        list0 = Square.load_from_file()
+        list2 = []
+        list3 = []
+        for i in range(2):
+            list2.append(list1[i].to_dictionary())
+        for instance in list2:
+                list3.append(Square.create(**instance))
+        for i in range(len(list3)):
+            self.assertEqual(list3[i].__str__(), list0[i].__str__())

@@ -168,12 +168,3 @@ class TestRectangle(unittest.TestCase):
                 list3.append(Rectangle.create(**instance))        
         for i in range(len(list3)):
             self.assertEqual(list3[i].__str__(), list0[i].__str__())
-
-    def test_pep8(self):
-        """test that code follows pep8 style guidelines"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py',
-                                        'models/rectangle.py',
-                                        'models/square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")

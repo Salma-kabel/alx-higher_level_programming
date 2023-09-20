@@ -4,8 +4,6 @@ import unittest
 from models.base import Base
 from models.square import Square
 from models.rectangle import Rectangle
-from io import StringIO
-from unittest.mock import patch
 import pep8
 
 
@@ -35,11 +33,11 @@ class TestBase(unittest.TestCase):
         res3 = self.base1.from_json_string('[{"test1": 1, "test2": null}]')
         self.assertEqual(res3, [{'test1' : 1, 'test2' : None}])
 
-    def test_pep8(self):
-        """test that code follows pep8 style guidelines"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py',
+    def test_pep(self):
+        """test for pep8 style"""
+        pep = pep8.StyleGuide(quiet=True)
+        res = pep.check_files(['models/base.py',
                                         'models/rectangle.py',
                                         'models/square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors.")
+        self.assertEqual(res.total_errors, 0,
+                         "There is an error")
