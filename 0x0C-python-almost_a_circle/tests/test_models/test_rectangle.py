@@ -156,8 +156,12 @@ class TestRectangle(unittest.TestCase):
 
     def test_loadfromfilerect(self):
         """test load_from_file for rect"""
+        self.assertEqual(Rectangle.load_from_file(), [])
         list1 = [Rectangle(4, 2), Rectangle(7, 3, 2, 1)]
-        Rectangle.save_to_file(list1)
+        list0 = Rectangle.save_to_file(list1)
+        for i in range(len(list0)):
+            self.assertEqual(list1[i].__str__(), list0[i].__str__())
+
     def test_pep8(self):
         """test that code follows pep8 style guidelines"""
         pep8style = pep8.StyleGuide(quiet=True)
