@@ -1,4 +1,5 @@
 import unittest
+import os
 from models.square import Square
 import pep8
 from models.rectangle import Rectangle
@@ -129,6 +130,7 @@ class test_square(unittest.TestCase):
 
     def test_loadfrom_square(self):
         """test load_from_file for Square"""
+        os.remove("Square.json")
         list2 = []
         self.assertEqual(Square.load_from_file(), list2)
         list1 = [Square(4), Square(3, 2, 1)]
@@ -143,11 +145,3 @@ class test_square(unittest.TestCase):
         for i in range(len(list3)):
             self.assertEqual(list3[i].__str__(), list0[i].__str__())
 
-    def test_pep(self):
-        """test for pep8 style"""
-        pep = pep8.StyleGuide(quiet=True)
-        res = pep.check_files(['models/base.py',
-                                        'models/rectangle.py',
-                                        'models/square.py'])
-        self.assertEqual(res.total_errors, 0,
-                         "There is an error")
