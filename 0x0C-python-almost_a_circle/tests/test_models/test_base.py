@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
         """ Test id attribute"""
         base1 = Base()
         self.assertEqual(base1.id, 1)
-        base2 = Base(5)
-        self.assertEqual(base2.id, 5)
+        base2 = Base(89)
+        self.assertEqual(base2.id, 89)
         base3 = Base()
         self.assertEqual(base3.id, 2)
