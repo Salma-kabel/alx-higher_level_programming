@@ -142,3 +142,12 @@ class test_square(unittest.TestCase):
                 list3.append(Square.create(**instance))
         for i in range(len(list3)):
             self.assertEqual(list3[i].__str__(), list0[i].__str__())
+
+    def test_pep(self):
+        """test for pep8 style"""
+        pep = pep8.StyleGuide(quiet=True)
+        res = pep.check_files(['models/base.py',
+                                        'models/rectangle.py',
+                                        'models/square.py'])
+        self.assertEqual(res.total_errors, 0,
+                         "There is an error")
