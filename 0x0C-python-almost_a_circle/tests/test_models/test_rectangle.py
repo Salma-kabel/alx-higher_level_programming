@@ -143,8 +143,9 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json") as f:
             self.assertEqual(f.read(), "[]")
         Rectangle.save_to_file([])
+        list0 = []
         with open("Rectangle.json") as f:
-            self.assertEqual(f.read(), "[]")
+            self.assertEqual(f.read(), Rectangle.to_json_string(list0))
         list1 = [Rectangle(4, 2), Rectangle(7, 3, 2, 1)]
         Rectangle.save_to_file(list1)
         list2 = []
@@ -152,7 +153,12 @@ class TestRectangle(unittest.TestCase):
                 list2.append(list1[i].to_dictionary())
         with open("Rectangle.json") as f:
             self.assertEqual(f.read(), Rectangle.to_json_string(list2))
-def test_pep8(self):
+
+    def test_loadfromfilerect(self):
+        """test load_from_file for rect"""
+        list1 = [Rectangle(4, 2), Rectangle(7, 3, 2, 1)]
+        Rectangle.save_to_file(list1)
+    def test_pep8(self):
         """test that code follows pep8 style guidelines"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py',
