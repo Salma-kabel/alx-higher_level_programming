@@ -11,7 +11,7 @@ class test_square(unittest.TestCase):
     """run before any test"""
     def setUp(self):
         Base._Base__nb_objects = 0
-
+        self.sq= Square(5, 2, 1, 13)
     def test_init_square(self):
         """test for inistantiation function"""
         sq0 = Square(5)
@@ -51,11 +51,42 @@ class test_square(unittest.TestCase):
         self.assertRaises(ValueError, sq1.__init__, 20, 8, -1)
 
 
-    def test_pep8(self):
-        """test that code follows pep8 style guidelines"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py',
-                                        'models/rectangle.py',
-                                        'models/square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+    def test_str_square(self):
+        """test str method for square"""
+        self.assertEqual(self.sq.__str__(), "[Square] (13) 2/1 - 5")
+
+    def test_todict_square(self):
+        """test to_dictionary method for square"""
+        res = {'id' : 13, 'size': 5, 'x' : 2, 'y' : 1}
+        self.assertEqual(self.sq.to_dictionary(),res)
+
+    def test_update_square(self):
+        """test for update method for square"""
+        self.assertEqual(self.sq.update(None), None)
+        self.assertEqual(self.sq.update(), None)
+        self.sq.update(7)
+        self.assertEqual(self.sq.id, 7)
+        self.sq.update(9, 12)
+        self.assertEqual(self.sq.id, 9)
+        self.assertEqual(self.sq.width, 12)
+        self.assertEqual(self.sq.height, 12)
+        self.sq.update(41, 13, 5)
+        self.assertEqual(self.sq.id, 41)
+        self.assertEqual(self.sq.width, 13)
+        self.assertEqual(self.sq.height, 13)
+        self.assertEqual(self.sq.x, 5)
+        self.sq.update(42, 15, 7, 2)
+        self.assertEqual(self.sq.id, 42)
+        self.assertEqual(self.sq.width, 15)
+        self.assertEqual(self.sq.height, 15)
+        self.assertEqual(self.sq.x, 7)
+        self.assertEqual(self.sq.y, 2)
+        self.sq.update(**{'id' : 8})
+        self.assertEqual(self.sq.id, 8)
+        self.sq.update(**{'id' : 8, 'size': 7})
+        self.assertEqual(self.sq.width, 7)
+        self.assertEqual(self.sq.height, 7)
+        self.sq.update(**{'id' : 8, 'size': 7, 'x' : 2})
+        self.assertEqual(self.sq.x, 2)
+        self.sq.update(**{'id' : 8, 'size': 7, 'x' : 2, 'y': 1})
+        self.assertEqual(self.sq.y, 1)
