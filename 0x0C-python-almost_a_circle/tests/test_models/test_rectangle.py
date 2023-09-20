@@ -32,6 +32,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect3.x, 1)
         self.assertEqual(rect3.y, 0)
         self.assertEqual(rect3.id, 2)
+        self.assertRaises(TypeError, Rectangle.__init__, ["1", 8, 1])
+        self.assertRaises(TypeError, Rectangle.__init__, [20, "5", 1])
+        self.assertRaises(TypeError, Rectangle.__init__, [20, 8, "1"])
+        self.assertRaises(TypeError, Rectangle.__init__, [20, 8, 1, "3"])
+        self.assertRaises(ValueError, rect1.__init__, 0, 8, 1)
+        self.assertRaises(ValueError, rect1.__init__, 10, 0, 1)
+        self.assertRaises(ValueError, rect1.__init__, -20, 8, 1)
+        self.assertRaises(ValueError, rect1.__init__, 20, -8, 1)
+        self.assertRaises(ValueError, rect1.__init__, 20, 8, -1)
+        self.assertRaises(ValueError, rect1.__init__, 20, 8, 1, -1)
 
 
 def test_pep8(self):
