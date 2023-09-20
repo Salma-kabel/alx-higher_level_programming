@@ -80,6 +80,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.to_dictionary(),res)
 
     def test_update(self):
+        """test for update method"""
         self.assertEqual(self.rect.update(None), None)
         self.assertEqual(self.rect.update(), None)
         self.rect.update(7)
@@ -114,6 +115,27 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.y, 1)
 
 
+    def test_create_rect(self):
+        rect1 = Rectangle.create(**{'id' : 5})
+        self.assertEqual(rect1.id, 5)
+        rect2 = Rectangle.create(**{'id' : 6, 'width' : 7})
+        self.assertEqual(rect2.id, 6)
+        self.assertEqual(rect2.width, 7)
+        rect3 = Rectangle.create(**{'id' : 10, 'width' : 7, 'height' : 5})
+        self.assertEqual(rect3.id, 10)
+        self.assertEqual(rect3.width, 7)
+        self.assertEqual(rect3.height, 5)
+        rect4 = Rectangle.create(**{'id' : 11, 'width' : 7, 'height' : 5, 'x': 3})
+        self.assertEqual(rect4.id, 11)
+        self.assertEqual(rect4.width, 7)
+        self.assertEqual(rect4.height, 5)
+        self.assertEqual(rect4.x, 3)
+        rect5 = Rectangle.create(**{'id' : 15, 'width' : 7, 'height' : 4, 'x': 1, 'y' : 1})
+        self.assertEqual(rect5.id, 15)
+        self.assertEqual(rect5.width, 7)
+        self.assertEqual(rect5.height, 4)
+        self.assertEqual(rect5.x, 1)
+        self.assertEqual(rect5.y, 1)
 def test_pep8(self):
         """test that code follows pep8 style guidelines"""
         pep8style = pep8.StyleGuide(quiet=True)
