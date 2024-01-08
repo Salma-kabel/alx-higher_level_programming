@@ -1,12 +1,13 @@
-#!/usr/bin/python3
-
-from sys import argv
-import MySQLdb
 """
 script that lists all states from the
 database hbtn_0e_0_usa
 
 """
+
+#!/usr/bin/python3
+
+from sys import argv
+import MySQLdb
 
 
 if __name__ == "__main__":
