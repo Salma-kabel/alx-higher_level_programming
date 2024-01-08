@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 contains the class definition of a City
+that inherits instance Base = declarative_base()
 """
 
 
