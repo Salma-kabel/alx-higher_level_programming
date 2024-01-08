@@ -18,6 +18,6 @@ if __name__ == "__main__":
     for state in states:
         if state[1] == argv[4]:
             if i != 0:
-            print(", ", end="")
-        print(state[0], end="")
+                print(", ", end="")
+            print(state[0], end="")
     print("")
