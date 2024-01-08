@@ -4,10 +4,7 @@ contains the class definition of a City
 that inherits from base
 """
 from model_state import Base
-from sre_parse import State
-from unicodedata import name
-from sqlalchemy import Column, ForeignKey, Integer, String, null
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, ForeignKey, Integer, String
 
 
 class City(Base):
