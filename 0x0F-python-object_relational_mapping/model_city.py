@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Defines a state model that contain the class definition
- of a City and an instance Base = declarative_base()
+contains the class definition of a City
+that inherits from base
 """
 from lib2to3.pytree import Base
 from sre_parse import State
