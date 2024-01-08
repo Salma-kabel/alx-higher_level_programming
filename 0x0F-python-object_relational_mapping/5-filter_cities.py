@@ -17,4 +17,4 @@ if __name__ == "__main__":
     states = cur.fetchall()
     for state in states:
         if (state[1] == argv[4]):
-            print(", ".join(state[0]))
+            print(", ".join(state))
