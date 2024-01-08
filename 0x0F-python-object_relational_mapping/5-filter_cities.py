@@ -16,4 +16,5 @@ if __name__ == "__main__":
                 ORDER BY cities.id""")
     states = cur.fetchall()
     for state in states:
-         print(", ".join(state[1]))
+        if (state[1] == argv[4]):
+            print(", ".join(state[0]))
