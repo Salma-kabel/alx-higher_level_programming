@@ -19,5 +19,5 @@ if __name__ == "__main__":
         if state[1] == argv[4]:
             if i != 0:
             print(", ", end="")
-        print(state[0])
+        print(state[0], end="")
     print("")
