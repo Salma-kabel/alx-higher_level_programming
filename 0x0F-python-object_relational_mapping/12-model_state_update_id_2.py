@@ -3,7 +3,6 @@
 database hbtn_0e_6_usa"""
 
 
-
 from sys import argv
 import imp
 from sqlalchemy import create_engine
