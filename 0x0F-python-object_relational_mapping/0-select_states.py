@@ -7,6 +7,7 @@ database hbtn_0e_0_usa
 from sys import argv
 import MySQLdb
 
+
 def main():
     """
     Connect to the database and list all states
@@ -19,6 +20,6 @@ def main():
     for state in states:
         print(state)
 
+
 if __name__ == "__main__":
     main()
-
