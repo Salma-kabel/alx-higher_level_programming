@@ -1,16 +1,12 @@
 #!/usr/bin/python3
+
+import sys import argv
+import MySQLdb
 """
 script that lists all states from the
 database hbtn_0e_0_usa
 
 """
-"""
-lists all states from the database in ascending order
-using MySQLdb
-"""
-
-import sys import argv
-import MySQLdb
 
 
 if __name__ == "__main__":
