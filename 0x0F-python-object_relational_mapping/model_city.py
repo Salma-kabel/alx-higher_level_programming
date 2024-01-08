@@ -9,7 +9,7 @@ from model_state import Base
 
 
 class City(Base):
-    """inherits from base"""
+    """inherits from base links to the MySQL table cities"""
     __tablename__ = "cities"
     id = Column(Integer, unique=True, nullable=False,primary_key=True)
     name = Column(String(128), nullable=False)
