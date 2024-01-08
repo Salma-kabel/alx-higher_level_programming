@@ -11,12 +11,11 @@ from model_state import State
 from model_city import City
 
 
-
 if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
     session1 = sessionmaker(bind=engine)
     session = session1()
-    for state in session.query(State, City).join(
-            State, City.state.id == State.id).order_by(City.id):
-        print("{}: ({}) {}".format(state[0].name, state[1].id, state[1].name))
+    for state, city in session.query(State, City).filter(
+            State.id == City.state_id).order_by(City.id):
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
