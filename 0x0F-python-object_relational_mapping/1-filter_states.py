@@ -12,8 +12,8 @@ def main():
     db = MySQLdb.connect(host="localhost",
                          user=argv[1], passwd=argv[2], db=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name LIKE "N%" ORDER BY id")
-    states = = cur.fetchall()
+    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id")
+    states = cur.fetchall()
     for state in states:
         print(state)
 
