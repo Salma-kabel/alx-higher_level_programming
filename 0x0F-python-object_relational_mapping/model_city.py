@@ -3,13 +3,11 @@
 contains the class definition of a City
 that inherits from base
 """
-from lib2to3.pytree import Base
+from model_state import Base
 from sre_parse import State
 from unicodedata import name
 from sqlalchemy import Column, ForeignKey, Integer, String, null
 from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
 
 
 class City(Base):
