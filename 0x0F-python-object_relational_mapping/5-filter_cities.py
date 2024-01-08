@@ -15,6 +15,6 @@ if __name__ == "__main__":
                 JOIN states ON cities.state_id = states.id
                 ORDER BY cities.id""")
     states = cur.fetchall()
-    for state in states:
-        if (state[1] == argv[4]):
-            print(", ".join(state))
+    print(", ".join([state[0]
+                     for state in states
+                     if state[1] == argv[4]]))
