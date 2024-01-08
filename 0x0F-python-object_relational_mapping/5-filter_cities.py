@@ -15,9 +15,9 @@ if __name__ == "__main__":
                 JOIN states ON cities.state_id = states.id
                 ORDER BY cities.id""")
     states = cur.fetchall()
-    for state in states:
+    for i, state in enumerate(states, start=0):
         if state[1] == argv[4]:
-            if state != states[0]:
+            if i != 0:
                 print(", ", end="")
             print(state[0], end="")
     print("")
