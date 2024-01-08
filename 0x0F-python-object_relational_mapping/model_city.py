@@ -8,6 +8,10 @@ that inherits instance Base = declarative_base()
 from sqlalchemy import Column, Integer, String, ForeignKey
 from model_state import Base
 """
+"""
+Defines a state model that contain the class definition
+ of a City and an instance Base = declarative_base()
+"""
 from lib2to3.pytree import Base
 from sre_parse import State
 from unicodedata import name
