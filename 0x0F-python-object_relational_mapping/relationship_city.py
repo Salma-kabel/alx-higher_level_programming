@@ -1,18 +1,16 @@
 #!/usr/bin/python3
 """
-defines City class that inherits from Base = declarative_base()
-and links to MySQL table cities using SQLAlchemy
+contains the class definition of a City
 """
 
+
 from sqlalchemy import Column, Integer, String, ForeignKey
-from relationship_state import Base
+from model_state import Base
 
 
 class City(Base):
-    """
-    defines City class that links to MySQL table 'cities'
-    """
-    __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True, nullable=False)
+    """inherits from base"""
+    __tablename__ = "cities"
+    id = Column(Integer, unique=True, nullable=False,primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state_id = Column(Integer, nullable=False, ForeignKey('states.id'))
