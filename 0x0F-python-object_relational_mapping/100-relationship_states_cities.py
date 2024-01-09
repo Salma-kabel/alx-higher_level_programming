@@ -18,6 +18,5 @@ if __name__ == "__main__":
     session1 = sessionmaker(bind=engine)
     session = session1()
 
-    session.add(City(name="San Francisco", state=State(name="California")))
+    session.add(State(name='California', cities=[City(name='San Francisco')]))
     session.commit()
-    session.close()
