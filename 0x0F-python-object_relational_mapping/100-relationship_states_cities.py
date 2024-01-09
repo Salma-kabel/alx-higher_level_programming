@@ -17,5 +17,6 @@ if __name__ == "__main__":
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
     session1 = sessionmaker(bind=engine)
     session = session1()
-    session.add(State(name="California", cities=[City(name="San Francisco")]))
+
+    session.add(City(name="San Francisco", state=State(name="California")))    
     session.commit()
