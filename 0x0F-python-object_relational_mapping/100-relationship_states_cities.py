@@ -1,24 +1,21 @@
 #!/usr/bin/python3
 """
-creates the State "California" with the City "San Francisco" from the
-database hbtn_0e_100_usa: (100-relationship_states_cities.py)
+defines State class that inherits from Base = declarative_base()
+and links to MySQL table states using SQLAlchemy
 """
 
-import sys
-from unicodedata import name
-from venv import create
-from sqlalchemy import create_engine, true
-from sqlalchemy.orm import sessionmaker
-from relationship_state import State
-from relationship_city import Base, City
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 
-if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(
-        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-    session_maker = sessionmaker(bind=engine)
-    session = session_maker()
+Base = declarative_base()
 
-    session.add(City(name="San Francisco", state=State(name="California")))
-    session.commit()
-    session.close()
+
+class State(Base):
+    """
+    defines State class that links to MySQL table 'states'
+    """
+    __tablename__ = 'states'
+    id = Column(Integer, primary_key=True, nullable=False)
+    name = Column(String(128), nullable=False)
+    cities = relationship("City", cascade="all, delete", backref="state")
