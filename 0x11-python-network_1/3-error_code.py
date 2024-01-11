@@ -5,7 +5,7 @@ displays the body of the response
 """
 
 
-from urllib import request, parse
+from urllib import request, error
 from sys import argv
 
 
