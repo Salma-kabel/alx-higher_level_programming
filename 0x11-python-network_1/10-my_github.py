@@ -12,5 +12,5 @@ from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
     auth1 = HTTPBasicAuth(argv[1], argv[2])
-    r = requests.get("https://api.github.com/use", auth=auth1)
+    r = requests.get("https://api.github.com/user", auth=auth1)
     print(r.json().get("id"))
