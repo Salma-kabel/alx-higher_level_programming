@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-
-import requests
-from sys import argv
 """
 takes in a URL, sends a request to the URL and
 displays the body of the response
 """
+
+
+import requests
+from sys import argv
 
 
 if __name__ == "__main__":
