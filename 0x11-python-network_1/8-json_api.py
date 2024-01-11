@@ -12,9 +12,9 @@ from sys import argv
 
 if __name__ == "__main__":
     data1 = {'q': ""}
-    if len(argv) > 2:
-        data1['q'] = argv[2]
-    r = requests.post(argv[1], data=data1)
+    if len(argv) > 1:
+        data1['q'] = argv[1]
+    r = requests.post("http://0.0.0.0:5000/search_user", data=data1)
     try:
         res = r.json()
         if res == {}:
