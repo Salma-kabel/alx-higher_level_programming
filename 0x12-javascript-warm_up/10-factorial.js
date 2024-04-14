@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const args = process.argv;
-let num = Number(args[2]);
+const num = Number(args[2]);
 function factorial (num) {
   if (num === 1) {
     return 1;
