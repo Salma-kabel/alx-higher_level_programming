@@ -5,8 +5,8 @@ const myObject = {
 };
 console.log(myObject);
 myObject.incr = function () {
-  mtObject.value++;
-}
+  myObject.value++;
+};
 myObject.incr();
 console.log(myObject);
 myObject.incr();
