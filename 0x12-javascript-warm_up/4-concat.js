@@ -1,3 +1,3 @@
 #!/usr/bin/node
 const args = process.argv;
-console.log(args[2].toString() + 'is' + args[3].toString());
+console.log(args[2] + ' is ' + args[3]);
