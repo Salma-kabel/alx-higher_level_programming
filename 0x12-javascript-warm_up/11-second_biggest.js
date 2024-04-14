@@ -6,7 +6,7 @@ if (args.length < 4) {
   let s;
   let b;
   let i = 2;
-  if (args[i] > args[i + 1]) {
+  if (+args[i] > +args[i + 1]) {
     b = args[i];
     s = args[i + 1];
   } else {
@@ -14,10 +14,10 @@ if (args.length < 4) {
     s = args[i];
   }
   for (i; i < args.length; i++) {
-    if (args[i] > b) {
+    if (+args[i] > +b) {
       s = b;
       b = args[i];
-    } else if (args[i] > s && args[i] < b) {
+    } else if (+args[i] > +s && +args[i] < +b) {
       s = args[i];
     }
   }
