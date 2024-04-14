@@ -4,7 +4,7 @@ let i = Number(args[2]);
 if (isNaN(i)) {
   console.log('Missing number of occurrences');
 } else {
-  while (i) {
+  while (i > 0) {
     console.log('C is fun');
     i--;
   }
