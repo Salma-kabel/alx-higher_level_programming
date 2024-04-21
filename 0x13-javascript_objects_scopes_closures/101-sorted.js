@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const dict = require('./101-data.js').dict;
 let dict2 = {}
-for (const element of dict) {
+for (const element in dict) {
   if (!dict2.hasOwnProperty(dict[element])) {
     dict2[dict[element]] = [element]
   } else {
