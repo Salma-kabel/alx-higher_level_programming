@@ -1,6 +1,6 @@
 #!/usr/bin/node
 exports.esrever = function (list) {
-  const arr[list.length];
+  const arr[];
   let i = 0;
   for (i; i < list.length; i++) {
     arr[i] = list[list.length - 1 - i];
