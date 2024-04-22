@@ -11,7 +11,7 @@ request(url, function (err, response, body) {
   }
 });
 
-function printNames(characters, i) {
+function printNames (characters, i) {
   if (i >= characters.length) {
     return;
   }
