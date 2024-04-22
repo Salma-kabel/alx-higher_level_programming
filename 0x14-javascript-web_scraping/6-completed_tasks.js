@@ -5,8 +5,8 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else {
-    list = JSON.parse(body);
-    let dict = {};
+    const list = JSON.parse(body);
+    const dict = {};
     for (let i = 0; i < list.length; i++) {
       if (list[i].completed === true) {
         if (!(Object.prototype.hasOwnProperty.call(dict, list[i].userId))) {
