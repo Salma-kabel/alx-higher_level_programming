@@ -1,6 +1,10 @@
 #!/usr/bin/node
 const request = require('request');
 const url = process.argv[2];
-const req = new request(url);
-const response = fetch(req);
-console.log('code: ' + response.status);
+request(url, function (err, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('code: ' + response.statusCode);
+  }
+});
