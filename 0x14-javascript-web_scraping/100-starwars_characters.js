@@ -5,7 +5,6 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else {
-    const list = [];
     const characters = JSON.parse(body).characters;
     for (let i = 0; i < characters.length; i++) {
       const idlist = characters[i].split("/");
@@ -14,10 +13,9 @@ request(url, function (err, response, body) {
         if (err) {
           console.log(err);
         } else {
-          list.push(JSON.parse(body).name);
+          console.log(JSON.parse(body).name);
         }
       });
     }
-    console.log(list);
   }
 });
